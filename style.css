@@ -1,0 +1,527 @@
+.layout-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  position: sticky;
+  top: 60px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 150px;         
+  flex-shrink: 0;        
+  flex-direction: column;
+  display: flex;
+  background-color: white;
+  border-right: 1px solid #e0e0e0;
+  height: calc(100vh - 60px);
+}
+.sidebar a{
+    margin:4px;
+    text-decoration: none;
+    color:rgb(53, 53, 53);
+    padding: 5px 10px;
+    border: 2px solid white;
+    font-size: small;
+}
+a:focus{
+    border: 2px dashed rgb(43, 71, 251);
+    outline: none;
+}
+button:focus{
+    border: 2px dashed rgb(43, 71, 251);
+    outline: none;
+}
+hr{
+    margin: 20px -16px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.main-content {
+  flex: 1;            
+  width:auto;
+  height: auto;   
+  padding: 2rem;
+  overflow:hidden;
+  z-index: 0;
+}
+.sidebar a:hover{
+    background-color: aliceblue;
+    border-radius: 8px;
+    color:blue;
+    padding: 5px 10px;
+}
+.ToggleDarkMode{
+    border:2px solid #f8f9fa;
+    background-color: #f8f9fa;
+    border-radius: 50px;
+    display: flex;
+}
+.ToggleDarkMode:hover{
+    filter: brightness(0.9);
+}
+.Navbar{
+    height:60px;
+    width:100%;
+    display: flex;
+    top:0;
+    position: sticky;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+    padding-left: 10px;
+    z-index: 1;
+}
+
+.Dark { 
+    display: none; 
+    border-radius: 50px;
+}
+
+
+.NavButton{
+    border: 2px solid #f8f9fa;
+    background-color: #f8f9fa;
+    height: 60px;
+    font-size: larger;
+    font-weight: 600;
+    text-decoration: none;
+    color:rgb(54, 54, 54);
+    position: relative;
+}
+.NavButton:hover{
+    background-color: aliceblue;
+    color: black;
+}
+.NavButton:hover::before{
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left:0;
+     background-color: rgb(0, 136, 255);
+     height: 2px;
+     width:65px;
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+    margin:0;
+    overflow: hidden;
+    height:100vh;
+}
+.SideBarToggle{
+    border-radius: 50px;
+    border: 2px solid #f8f9fa;
+    background-color: #f8f9fa;
+    transition: 0.3s;
+    display: none;
+    margin-top:5px;
+}
+.SideBarToggle:hover{
+    background-color: rgb(228, 228, 228);
+}
+.sidebar.open{
+    display: flex;
+}
+
+@media (max-width: 760px) {
+    .SideBarToggle{
+        display: flex;
+    }
+    .sidebar{
+        display: none;
+    }
+    .main-content{
+        display: block;
+    }
+    .editor-wrap{
+        flex-direction: column;
+    }
+}
+body{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+*::selection{
+    color: white;
+    background-color: black;
+}
+.Heading{
+    color: rgb(0, 0, 0);
+    width:fit-content;
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+}
+.Heading::after{
+    content: '';
+    position: absolute;
+    height:3px;
+    border-radius: 10px;
+    width:100%;
+    background-color: rgb(0, 136, 255) ;
+    bottom: 0;
+    left: 0;
+}
+.SubHeading{
+    color: rgb(0, 0, 0);
+    width:fit-content;
+    font-weight:400;
+    position: relative;
+    overflow: hidden;
+}
+.SubHeading::after{
+    content: '';
+    position: absolute;
+    height:2px;
+    border-radius: 10px;
+    width:100%;
+    background-color: rgb(0, 136, 255) ;
+    bottom: 0;
+    left: 0;
+}
+
+img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  border-radius: 8px;           
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;  
+  margin-bottom: 15px;         
+}
+
+
+
+.PageArrow{
+    display: flex;
+    justify-content: space-between;
+    margin-top:20px;
+}
+.PageArrow button{
+    display: flex;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 50px;
+    padding: 5px;
+    background-color: rgb(49, 159, 254);   
+    color: white;
+    box-shadow: 3px 3px 0 0 rgb(0, 0, 0.1);
+}
+.PageArrow button:hover{
+    filter: brightness(0.9);
+}
+.PageArrow button:active{
+    transform: translateX(1.5px)
+                translateY(1.5px);
+    box-shadow: 0 0 0 0;
+}
+
+.PageArrow svg{
+}
+.Points{
+    font-size: small;
+    line-height: 20px;
+}
+.Points li::marker{
+    color: rgb(0, 136, 255); 
+}
+.tag{
+    color: #1a1a2e;
+    display: inline;
+    background-color: hsl(0, 0%, 94%);
+    border-radius: 4px;
+}
+.tagName{
+    color:orangered;
+    display: inline;
+}
+.ContentContainer{
+    line-height: 2.7;
+}
+.InfoContainer{
+    border: 1px solid orangered;
+    background-color: rgb(255, 245, 226);
+    display: flex;
+    padding:2px 20px;
+    font-size: small;
+    flex-direction: row;
+}
+.InfoContainer svg{
+    color: orangered;
+    margin-top: 12px;
+    margin-right: 5px;
+    
+}
+.InfoText{
+    color: orangered;
+}
+code{
+    background-color: hsl(0, 0%, 94%);
+    border-radius: 4px;
+    font-size: large;
+    padding:2px;
+    font-family:monospace;
+}
+body.dark{
+    color: #e0e0e0;
+    background-color: #1a1a1a;
+    body.dark #Light { display: none; }
+    
+    .Dark { 
+        display: flex; 
+        color: white;
+        background-color: #1a1a1a;
+    }
+    #Light{
+        display: none;
+        background-color: #1a1a1a;
+    }
+    .ToggleDarkMode{
+        background-color: #1a1a1a;
+        border: 2px solid #1a1a1a;
+    }
+    .ToggleDarkMode:hover {
+        background-color: #444;
+        .Dark{
+            background-color: #444;
+        }
+    }
+    .sidebar{
+        background-color: #1a1a1a;
+    }
+    .sidebar a{
+        border: 2px solid #1a1a1a;
+        color:#e0e0e0;
+    }
+    .sidebar a:hover{
+        background-color: #0d2137;
+        color: rgb(176, 219, 255);
+    }
+    .Navbar{
+        background-color: #1e1e1e;
+    }
+    .NavButton{
+        background-color: #1e1e1e;
+        color:#e0e0e0;
+        border: 2px solid #1e1e1e;
+    }
+    .NavButton:hover{
+        background-color: #0d2137;
+    }
+    ::-webkit-scrollbar {
+    width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background: #0088ff;
+    }
+    a:focus{
+    border: 2px dashed rgb(43, 71, 251);
+    outline: none;
+    }
+    button:focus{
+    border: 2px dashed rgb(43, 71, 251);
+    outline: none;
+    }
+    .Heading{
+        color:#e0e0e0;
+    }
+    .SubHeading{
+        color: #e0e0e0;
+    }
+    code{
+        color:#e0e0e0;
+        background-color: #303030;
+    }
+    .InfoContainer{
+        background-color: rgb(82, 22, 0);
+    }
+    .InfoContainer p,svg{
+        color: #ffbf98;
+    }
+    .PageArrow svg{
+        color: black;
+        
+    }
+    .PageArrow button{
+        box-shadow: 3px 3px 0 0 rgb(62, 62, 62);
+    }
+    .PageArrow button:active{
+        transform: translateX(1.5px)
+                translateY(1.5px);
+        box-shadow: 0 0 0 0;
+    }
+    .Translate{
+        color: #ffffff;
+        background-color: #1e1e1e;
+        border: 2px solid #1e1e1e;
+    }
+    .Translate:hover{
+        background-color: #444;
+    }
+   .Languages button{
+    background-color: #444;
+    border: 2px solid #444;
+    color:#e0e0e0
+   }
+   *::selection{
+    background-color:rgb(15, 18, 83);
+   }
+   .Languages button:hover{
+    background-color: #2b5684;
+    color:#e0e0e0;
+   }
+   .Languages{
+    background-color: #444;
+   }
+   .CodeInput{
+    background-color:#0d2137;
+    color: white;
+   }
+   .CodeOutput{
+    
+    color: white;
+   }
+   .run-btn{
+    background-color: rgb(82, 22, 0);
+    color: orange;
+   }
+   .run-btn:focus{
+    border: 1px solid rgb(176, 59, 0);
+}
+    .CodeFrame{
+        background-color: rgb(82, 22, 0);
+    }
+    .SideBarButton{
+        background-color:#0d2137;
+        color: #e0e0e0;
+    }
+    .SideBarToggle{
+        background-color:#1e1e1e;
+        color:white;
+        border: 2px solid #1e1e1e;
+    }
+    
+}
+   
+   
+
+.Translate{
+    border:2px solid #f8f9fa;
+    background-color: #f8f9fa;
+    border-radius: 50px;
+    display: flex;
+    position: relative;
+    
+}
+.Translate:hover{
+    filter:brightness(0.9);
+       
+}
+.Dropdown:hover .Languages{
+    display: flex;
+}
+
+.Languages{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    border-radius:12px;
+    padding:5x;
+    box-shadow: 0 0 4px 2px rgb(0, 0, 0,0.1);
+    min-width: 100px;
+}
+.Languages button{
+    background-color: white;
+    border: 2px solid white;
+    margin:2px;
+    transition: 0.3s;
+    padding:5px;
+    border-radius: 10px;
+}
+.Languages button:hover{
+    background-color: aliceblue;
+    color: blue;
+    border-radius: 10px;
+}
+.CodeInput{
+  width: 100%;
+  height: 180px;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  resize: vertical;
+  background: #ecf5ff;
+  line-height: 1.6;
+  outline: none;
+  box-sizing: border-box;
+}
+.CodeInput:focus {
+  border-color: #0088ff;
+  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.15);
+}
+.CodeOutput{
+  width: 100%;
+  height: 180px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: rgb(255, 255, 255);
+  
+}
+.editor-wrap{
+    display: flex;
+    gap: 12px;
+}
+.SideBarButton{
+    background-color: rgb(231, 244, 255);
+    color: blue;
+    border-radius: 8px;
+}
+.run-btn{
+    border: 1px solid orangered;
+   background-color: rgb(255, 243, 219);
+    color: orangered;
+    padding:10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top:5px;
+    width: 100%;
+    transition: 0.3s;
+}
+.run-btn:focus{
+    border: 1px solid rgb(176, 59, 0);
+}
+.run-btn:hover{
+    box-shadow: 0 0 0 4px rgba(255, 188, 141, 0.15);
+}
+.CodeFrame{
+  width: 100%;
+  height: 100%;
+  border: 1px solid orangered;
+  border-radius: 8px;
+  background: rgb(255, 241, 236);
+  display: flex;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.CodeText{
+    font-family: monospace;
+}
